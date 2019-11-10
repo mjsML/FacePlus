@@ -1,0 +1,4 @@
+EasyDict
+mxnet
+numpy
+opencv-python
