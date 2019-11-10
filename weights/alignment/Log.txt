@@ -1,0 +1,772 @@
+Call with Namespace(batch_size=20, ckpt=1, ctx_num=1, dataset='i3d', exf=1, frequent=20, lr=0.00025, lr_step='16000,24000,30000', network='sdu', norm=0, optimizer='nadam', per_batch_size=20, prefix='/content/drive/My Drive/Models/Alignment_1_/Model', pretrained='', verbose=200, wd=0.0) {'num_classes': 68, 'record_img_size': 384, 'base_scale': 256, 'input_img_size': 128, 'output_label_size': 64, 'label_xfirst': False, 'losstype': 'heatmap', 'net_coherent': False, 'multiplier': 1.0, 'gaussian': 0, 'net_sta': 1, 'net_n': 3, 'net_dcn': 3, 'net_stacks': 2, 'net_block': 'cab', 'net_binarize': False, 'dataset': 'i3d', 'landmark_type': '3d', 'dataset_path': './data_3d', 'val_targets': ['AFLW2000-3D'], 'network': 'sdu', 'per_batch_size': 20}
+INFO:root:loading recordio ./data_3d/train.rec...
+train size 61225
+train size after reset 61225
+binarize False
+use_coherent False
+use_STA 1
+use_N 3
+use_DCN 3
+per_batch_size 20
+128 64 2
+initializing upsampling_weight sta0_upsampling_w3_h3_weight
+initializing upsampling_weight sta0_upsampling_w2_h3_weight
+initializing upsampling_weight sta0_upsampling_w2_h2_weight
+initializing stack0_ll_conv_offset_weight
+initializing stack0_ll_conv_offset_bias
+initializing heatmap0_offset_weight
+initializing heatmap0_offset_bias
+initializing stack0_out3_offset_weight
+initializing stack0_out3_offset_bias
+initializing upsampling_weight sta1_upsampling_w3_h3_weight
+initializing upsampling_weight sta1_upsampling_w2_h3_weight
+initializing upsampling_weight sta1_upsampling_w2_h2_weight
+initializing stack1_ll_conv_offset_weight
+initializing stack1_ll_conv_offset_bias
+initializing heatmap_offset_weight
+initializing heatmap_offset_bias
+lr-steps [16000, 24000, 30000]
+/usr/local/lib/python3.6/dist-packages/mxnet/module/base_module.py:504: UserWarning: Optimizer created manually outside Module but rescale_grad is not normalized to 1.0/batch_size/num_workers (1.0 vs. 0.05). Is this intended?
+  optimizer_params=optimizer_params)
+[08:11:29] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[08:11:43] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:97: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+INFO:root:Epoch[0] Batch [0-20]	Speed: 5.51 samples/sec	lossvalue=0.001954
+INFO:root:Epoch[0] Batch [20-40]	Speed: 5.44 samples/sec	lossvalue=0.001569
+INFO:root:Epoch[0] Batch [40-60]	Speed: 5.45 samples/sec	lossvalue=0.001384
+INFO:root:Epoch[0] Batch [60-80]	Speed: 5.44 samples/sec	lossvalue=0.001290
+INFO:root:Epoch[0] Batch [80-100]	Speed: 5.44 samples/sec	lossvalue=0.001214
+INFO:root:Epoch[0] Batch [100-120]	Speed: 5.44 samples/sec	lossvalue=0.001160
+INFO:root:Epoch[0] Batch [120-140]	Speed: 5.42 samples/sec	lossvalue=0.001108
+INFO:root:Epoch[0] Batch [140-160]	Speed: 5.42 samples/sec	lossvalue=0.001115
+INFO:root:Epoch[0] Batch [160-180]	Speed: 5.41 samples/sec	lossvalue=0.001039
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[200][AFLW2000-3D]NME: 0.062639
+saving 1
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0001.params"
+INFO:root:Epoch[0] Batch [180-200]	Speed: 1.95 samples/sec	lossvalue=0.001036
+INFO:root:Epoch[0] Batch [200-220]	Speed: 5.43 samples/sec	lossvalue=0.001002
+INFO:root:Epoch[0] Batch [220-240]	Speed: 5.40 samples/sec	lossvalue=0.000986
+INFO:root:Epoch[0] Batch [240-260]	Speed: 5.40 samples/sec	lossvalue=0.000980
+INFO:root:Epoch[0] Batch [260-280]	Speed: 5.39 samples/sec	lossvalue=0.000965
+INFO:root:Epoch[0] Batch [280-300]	Speed: 5.38 samples/sec	lossvalue=0.000936
+INFO:root:Epoch[0] Batch [300-320]	Speed: 5.38 samples/sec	lossvalue=0.000921
+INFO:root:Epoch[0] Batch [320-340]	Speed: 5.37 samples/sec	lossvalue=0.000926
+INFO:root:Epoch[0] Batch [340-360]	Speed: 5.37 samples/sec	lossvalue=0.000893
+INFO:root:Epoch[0] Batch [360-380]	Speed: 5.38 samples/sec	lossvalue=0.000893
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[400][AFLW2000-3D]NME: 0.044577
+saving 2
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0002.params"
+INFO:root:Epoch[0] Batch [380-400]	Speed: 1.98 samples/sec	lossvalue=0.000858
+INFO:root:Epoch[0] Batch [400-420]	Speed: 5.39 samples/sec	lossvalue=0.000869
+INFO:root:Epoch[0] Batch [420-440]	Speed: 5.37 samples/sec	lossvalue=0.000845
+INFO:root:Epoch[0] Batch [440-460]	Speed: 5.38 samples/sec	lossvalue=0.000847
+INFO:root:Epoch[0] Batch [460-480]	Speed: 5.38 samples/sec	lossvalue=0.000842
+INFO:root:Epoch[0] Batch [480-500]	Speed: 5.38 samples/sec	lossvalue=0.000850
+INFO:root:Epoch[0] Batch [500-520]	Speed: 5.38 samples/sec	lossvalue=0.000814
+INFO:root:Epoch[0] Batch [520-540]	Speed: 5.38 samples/sec	lossvalue=0.000817
+INFO:root:Epoch[0] Batch [540-560]	Speed: 5.37 samples/sec	lossvalue=0.000800
+INFO:root:Epoch[0] Batch [560-580]	Speed: 5.38 samples/sec	lossvalue=0.000798
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[600][AFLW2000-3D]NME: 0.037950
+saving 3
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0003.params"
+INFO:root:Epoch[0] Batch [580-600]	Speed: 1.98 samples/sec	lossvalue=0.000800
+INFO:root:Epoch[0] Batch [600-620]	Speed: 5.39 samples/sec	lossvalue=0.000796
+INFO:root:Epoch[0] Batch [620-640]	Speed: 5.36 samples/sec	lossvalue=0.000791
+INFO:root:Epoch[0] Batch [640-660]	Speed: 5.36 samples/sec	lossvalue=0.000794
+INFO:root:Epoch[0] Batch [660-680]	Speed: 5.37 samples/sec	lossvalue=0.000776
+INFO:root:Epoch[0] Batch [680-700]	Speed: 5.36 samples/sec	lossvalue=0.000760
+INFO:root:Epoch[0] Batch [700-720]	Speed: 5.36 samples/sec	lossvalue=0.000754
+INFO:root:Epoch[0] Batch [720-740]	Speed: 5.35 samples/sec	lossvalue=0.000774
+INFO:root:Epoch[0] Batch [740-760]	Speed: 5.35 samples/sec	lossvalue=0.000749
+INFO:root:Epoch[0] Batch [760-780]	Speed: 5.35 samples/sec	lossvalue=0.000737
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[800][AFLW2000-3D]NME: 0.036508
+saving 4
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0004.params"
+INFO:root:Epoch[0] Batch [780-800]	Speed: 1.96 samples/sec	lossvalue=0.000747
+INFO:root:Epoch[0] Batch [800-820]	Speed: 5.38 samples/sec	lossvalue=0.000739
+INFO:root:Epoch[0] Batch [820-840]	Speed: 5.36 samples/sec	lossvalue=0.000746
+INFO:root:Epoch[0] Batch [840-860]	Speed: 5.35 samples/sec	lossvalue=0.000709
+INFO:root:Epoch[0] Batch [860-880]	Speed: 5.36 samples/sec	lossvalue=0.000738
+INFO:root:Epoch[0] Batch [880-900]	Speed: 5.36 samples/sec	lossvalue=0.000723
+INFO:root:Epoch[0] Batch [900-920]	Speed: 5.36 samples/sec	lossvalue=0.000709
+INFO:root:Epoch[0] Batch [920-940]	Speed: 5.36 samples/sec	lossvalue=0.000721
+INFO:root:Epoch[0] Batch [940-960]	Speed: 5.36 samples/sec	lossvalue=0.000712
+INFO:root:Epoch[0] Batch [960-980]	Speed: 5.35 samples/sec	lossvalue=0.000706
+lr-batch-epoch: 0.00025 999 0
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[1000][AFLW2000-3D]NME: 0.032243
+saving 5
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0005.params"
+INFO:root:Epoch[0] Batch [980-1000]	Speed: 1.97 samples/sec	lossvalue=0.000691
+INFO:root:Epoch[0] Batch [1000-1020]	Speed: 5.36 samples/sec	lossvalue=0.000693
+INFO:root:Epoch[0] Batch [1020-1040]	Speed: 5.35 samples/sec	lossvalue=0.000698
+INFO:root:Epoch[0] Batch [1040-1060]	Speed: 5.36 samples/sec	lossvalue=0.000692
+INFO:root:Epoch[0] Batch [1060-1080]	Speed: 5.35 samples/sec	lossvalue=0.000706
+INFO:root:Epoch[0] Batch [1080-1100]	Speed: 5.35 samples/sec	lossvalue=0.000689
+INFO:root:Epoch[0] Batch [1100-1120]	Speed: 5.36 samples/sec	lossvalue=0.000697
+INFO:root:Epoch[0] Batch [1120-1140]	Speed: 5.36 samples/sec	lossvalue=0.000681
+INFO:root:Epoch[0] Batch [1140-1160]	Speed: 5.36 samples/sec	lossvalue=0.000682
+INFO:root:Epoch[0] Batch [1160-1180]	Speed: 5.36 samples/sec	lossvalue=0.000691
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[1200][AFLW2000-3D]NME: 0.033169
+saving 6
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0006.params"
+INFO:root:Epoch[0] Batch [1180-1200]	Speed: 1.98 samples/sec	lossvalue=0.000686
+INFO:root:Epoch[0] Batch [1200-1220]	Speed: 5.36 samples/sec	lossvalue=0.000674
+INFO:root:Epoch[0] Batch [1220-1240]	Speed: 5.35 samples/sec	lossvalue=0.000664
+INFO:root:Epoch[0] Batch [1240-1260]	Speed: 5.35 samples/sec	lossvalue=0.000660
+INFO:root:Epoch[0] Batch [1260-1280]	Speed: 5.35 samples/sec	lossvalue=0.000655
+INFO:root:Epoch[0] Batch [1280-1300]	Speed: 5.34 samples/sec	lossvalue=0.000684
+INFO:root:Epoch[0] Batch [1300-1320]	Speed: 5.34 samples/sec	lossvalue=0.000661
+INFO:root:Epoch[0] Batch [1320-1340]	Speed: 5.34 samples/sec	lossvalue=0.000658
+INFO:root:Epoch[0] Batch [1340-1360]	Speed: 5.33 samples/sec	lossvalue=0.000654
+INFO:root:Epoch[0] Batch [1360-1380]	Speed: 5.33 samples/sec	lossvalue=0.000639
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[1400][AFLW2000-3D]NME: 0.029352
+saving 7
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0007.params"
+INFO:root:Epoch[0] Batch [1380-1400]	Speed: 1.95 samples/sec	lossvalue=0.000630
+INFO:root:Epoch[0] Batch [1400-1420]	Speed: 5.35 samples/sec	lossvalue=0.000643
+INFO:root:Epoch[0] Batch [1420-1440]	Speed: 5.34 samples/sec	lossvalue=0.000643
+INFO:root:Epoch[0] Batch [1440-1460]	Speed: 5.33 samples/sec	lossvalue=0.000637
+INFO:root:Epoch[0] Batch [1460-1480]	Speed: 5.34 samples/sec	lossvalue=0.000656
+INFO:root:Epoch[0] Batch [1480-1500]	Speed: 5.33 samples/sec	lossvalue=0.000627
+INFO:root:Epoch[0] Batch [1500-1520]	Speed: 5.34 samples/sec	lossvalue=0.000646
+INFO:root:Epoch[0] Batch [1520-1540]	Speed: 5.34 samples/sec	lossvalue=0.000633
+INFO:root:Epoch[0] Batch [1540-1560]	Speed: 5.34 samples/sec	lossvalue=0.000647
+INFO:root:Epoch[0] Batch [1560-1580]	Speed: 5.34 samples/sec	lossvalue=0.000628
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[1600][AFLW2000-3D]NME: 0.029575
+saving 8
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0008.params"
+INFO:root:Epoch[0] Batch [1580-1600]	Speed: 1.97 samples/sec	lossvalue=0.000617
+INFO:root:Epoch[0] Batch [1600-1620]	Speed: 5.35 samples/sec	lossvalue=0.000622
+INFO:root:Epoch[0] Batch [1620-1640]	Speed: 5.34 samples/sec	lossvalue=0.000626
+INFO:root:Epoch[0] Batch [1640-1660]	Speed: 5.34 samples/sec	lossvalue=0.000644
+INFO:root:Epoch[0] Batch [1660-1680]	Speed: 5.33 samples/sec	lossvalue=0.000624
+INFO:root:Epoch[0] Batch [1680-1700]	Speed: 5.33 samples/sec	lossvalue=0.000615
+INFO:root:Epoch[0] Batch [1700-1720]	Speed: 5.33 samples/sec	lossvalue=0.000625
+INFO:root:Epoch[0] Batch [1720-1740]	Speed: 5.34 samples/sec	lossvalue=0.000621
+INFO:root:Epoch[0] Batch [1740-1760]	Speed: 5.34 samples/sec	lossvalue=0.000603
+INFO:root:Epoch[0] Batch [1760-1780]	Speed: 5.34 samples/sec	lossvalue=0.000613
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[1800][AFLW2000-3D]NME: 0.029032
+saving 9
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0009.params"
+INFO:root:Epoch[0] Batch [1780-1800]	Speed: 1.97 samples/sec	lossvalue=0.000591
+INFO:root:Epoch[0] Batch [1800-1820]	Speed: 5.35 samples/sec	lossvalue=0.000612
+INFO:root:Epoch[0] Batch [1820-1840]	Speed: 5.33 samples/sec	lossvalue=0.000599
+INFO:root:Epoch[0] Batch [1840-1860]	Speed: 5.32 samples/sec	lossvalue=0.000595
+INFO:root:Epoch[0] Batch [1860-1880]	Speed: 5.32 samples/sec	lossvalue=0.000595
+INFO:root:Epoch[0] Batch [1880-1900]	Speed: 5.32 samples/sec	lossvalue=0.000596
+INFO:root:Epoch[0] Batch [1900-1920]	Speed: 5.31 samples/sec	lossvalue=0.000616
+INFO:root:Epoch[0] Batch [1920-1940]	Speed: 5.32 samples/sec	lossvalue=0.000604
+INFO:root:Epoch[0] Batch [1940-1960]	Speed: 5.31 samples/sec	lossvalue=0.000607
+INFO:root:Epoch[0] Batch [1960-1980]	Speed: 5.32 samples/sec	lossvalue=0.000610
+lr-batch-epoch: 0.00025 1999 0
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[2000][AFLW2000-3D]NME: 0.028860
+saving 10
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0010.params"
+INFO:root:Epoch[0] Batch [1980-2000]	Speed: 1.97 samples/sec	lossvalue=0.000601
+INFO:root:Epoch[0] Batch [2000-2020]	Speed: 5.35 samples/sec	lossvalue=0.000600
+INFO:root:Epoch[0] Batch [2020-2040]	Speed: 5.33 samples/sec	lossvalue=0.000602
+INFO:root:Epoch[0] Batch [2040-2060]	Speed: 5.32 samples/sec	lossvalue=0.000589
+INFO:root:Epoch[0] Batch [2060-2080]	Speed: 5.33 samples/sec	lossvalue=0.000595
+INFO:root:Epoch[0] Batch [2080-2100]	Speed: 5.33 samples/sec	lossvalue=0.000587
+INFO:root:Epoch[0] Batch [2100-2120]	Speed: 5.33 samples/sec	lossvalue=0.000586
+INFO:root:Epoch[0] Batch [2120-2140]	Speed: 5.33 samples/sec	lossvalue=0.000595
+INFO:root:Epoch[0] Batch [2140-2160]	Speed: 5.33 samples/sec	lossvalue=0.000575
+INFO:root:Epoch[0] Batch [2160-2180]	Speed: 5.32 samples/sec	lossvalue=0.000589
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[2200][AFLW2000-3D]NME: 0.028975
+saving 11
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0011.params"
+INFO:root:Epoch[0] Batch [2180-2200]	Speed: 1.97 samples/sec	lossvalue=0.000578
+INFO:root:Epoch[0] Batch [2200-2220]	Speed: 5.34 samples/sec	lossvalue=0.000602
+INFO:root:Epoch[0] Batch [2220-2240]	Speed: 5.32 samples/sec	lossvalue=0.000573
+INFO:root:Epoch[0] Batch [2240-2260]	Speed: 5.32 samples/sec	lossvalue=0.000591
+INFO:root:Epoch[0] Batch [2260-2280]	Speed: 5.32 samples/sec	lossvalue=0.000581
+INFO:root:Epoch[0] Batch [2280-2300]	Speed: 5.32 samples/sec	lossvalue=0.000585
+INFO:root:Epoch[0] Batch [2300-2320]	Speed: 5.31 samples/sec	lossvalue=0.000580
+INFO:root:Epoch[0] Batch [2320-2340]	Speed: 5.31 samples/sec	lossvalue=0.000577
+INFO:root:Epoch[0] Batch [2340-2360]	Speed: 5.31 samples/sec	lossvalue=0.000578
+INFO:root:Epoch[0] Batch [2360-2380]	Speed: 5.30 samples/sec	lossvalue=0.000572
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[2400][AFLW2000-3D]NME: 0.030746
+saving 12
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0012.params"
+INFO:root:Epoch[0] Batch [2380-2400]	Speed: 1.94 samples/sec	lossvalue=0.000566
+INFO:root:Epoch[0] Batch [2400-2420]	Speed: 5.33 samples/sec	lossvalue=0.000575
+INFO:root:Epoch[0] Batch [2420-2440]	Speed: 5.31 samples/sec	lossvalue=0.000564
+INFO:root:Epoch[0] Batch [2440-2460]	Speed: 5.31 samples/sec	lossvalue=0.000572
+INFO:root:Epoch[0] Batch [2460-2480]	Speed: 5.32 samples/sec	lossvalue=0.000569
+INFO:root:Epoch[0] Batch [2480-2500]	Speed: 5.32 samples/sec	lossvalue=0.000566
+INFO:root:Epoch[0] Batch [2500-2520]	Speed: 5.32 samples/sec	lossvalue=0.000567
+INFO:root:Epoch[0] Batch [2520-2540]	Speed: 5.33 samples/sec	lossvalue=0.000563
+INFO:root:Epoch[0] Batch [2540-2560]	Speed: 5.32 samples/sec	lossvalue=0.000562
+INFO:root:Epoch[0] Batch [2560-2580]	Speed: 5.32 samples/sec	lossvalue=0.000560
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[2600][AFLW2000-3D]NME: 0.028548
+saving 13
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0013.params"
+INFO:root:Epoch[0] Batch [2580-2600]	Speed: 1.97 samples/sec	lossvalue=0.000557
+INFO:root:Epoch[0] Batch [2600-2620]	Speed: 5.32 samples/sec	lossvalue=0.000556
+INFO:root:Epoch[0] Batch [2620-2640]	Speed: 5.32 samples/sec	lossvalue=0.000562
+INFO:root:Epoch[0] Batch [2640-2660]	Speed: 5.31 samples/sec	lossvalue=0.000540
+INFO:root:Epoch[0] Batch [2660-2680]	Speed: 5.32 samples/sec	lossvalue=0.000561
+INFO:root:Epoch[0] Batch [2680-2700]	Speed: 5.31 samples/sec	lossvalue=0.000561
+INFO:root:Epoch[0] Batch [2700-2720]	Speed: 5.31 samples/sec	lossvalue=0.000558
+INFO:root:Epoch[0] Batch [2720-2740]	Speed: 5.32 samples/sec	lossvalue=0.000549
+INFO:root:Epoch[0] Batch [2740-2760]	Speed: 5.31 samples/sec	lossvalue=0.000545
+INFO:root:Epoch[0] Batch [2760-2780]	Speed: 5.31 samples/sec	lossvalue=0.000551
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[2800][AFLW2000-3D]NME: 0.026237
+saving 14
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0014.params"
+INFO:root:Epoch[0] Batch [2780-2800]	Speed: 1.97 samples/sec	lossvalue=0.000559
+INFO:root:Epoch[0] Batch [2800-2820]	Speed: 5.32 samples/sec	lossvalue=0.000536
+INFO:root:Epoch[0] Batch [2820-2840]	Speed: 5.30 samples/sec	lossvalue=0.000553
+INFO:root:Epoch[0] Batch [2840-2860]	Speed: 5.31 samples/sec	lossvalue=0.000562
+INFO:root:Epoch[0] Batch [2860-2880]	Speed: 5.31 samples/sec	lossvalue=0.000546
+INFO:root:Epoch[0] Batch [2880-2900]	Speed: 5.30 samples/sec	lossvalue=0.000546
+INFO:root:Epoch[0] Batch [2900-2920]	Speed: 5.30 samples/sec	lossvalue=0.000548
+INFO:root:Epoch[0] Batch [2920-2940]	Speed: 5.30 samples/sec	lossvalue=0.000533
+INFO:root:Epoch[0] Batch [2940-2960]	Speed: 5.29 samples/sec	lossvalue=0.000554
+INFO:root:Epoch[0] Batch [2960-2980]	Speed: 5.30 samples/sec	lossvalue=0.000536
+lr-batch-epoch: 0.00025 2999 0
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[3000][AFLW2000-3D]NME: 0.026977
+saving 15
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0015.params"
+INFO:root:Epoch[0] Batch [2980-3000]	Speed: 1.94 samples/sec	lossvalue=0.000541
+INFO:root:Epoch[0] Batch [3000-3020]	Speed: 5.31 samples/sec	lossvalue=0.000549
+INFO:root:Epoch[0] Train-lossvalue=0.000534
+INFO:root:Epoch[0] Time cost=13299.828
+train size after reset 61225
+INFO:root:Epoch[1] Batch [0-20]	Speed: 5.30 samples/sec	lossvalue=0.000531
+INFO:root:Epoch[1] Batch [20-40]	Speed: 5.30 samples/sec	lossvalue=0.000545
+INFO:root:Epoch[1] Batch [40-60]	Speed: 5.30 samples/sec	lossvalue=0.000554
+INFO:root:Epoch[1] Batch [60-80]	Speed: 5.31 samples/sec	lossvalue=0.000535
+INFO:root:Epoch[1] Batch [80-100]	Speed: 5.31 samples/sec	lossvalue=0.000539
+INFO:root:Epoch[1] Batch [100-120]	Speed: 5.31 samples/sec	lossvalue=0.000542
+INFO:root:Epoch[1] Batch [120-140]	Speed: 5.31 samples/sec	lossvalue=0.000534
+INFO:root:Epoch[1] Batch [140-160]	Speed: 5.31 samples/sec	lossvalue=0.000539
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[3200][AFLW2000-3D]NME: 0.026572
+saving 16
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0016.params"
+INFO:root:Epoch[1] Batch [160-180]	Speed: 1.97 samples/sec	lossvalue=0.000521
+INFO:root:Epoch[1] Batch [180-200]	Speed: 5.30 samples/sec	lossvalue=0.000522
+INFO:root:Epoch[1] Batch [200-220]	Speed: 5.30 samples/sec	lossvalue=0.000532
+INFO:root:Epoch[1] Batch [220-240]	Speed: 5.31 samples/sec	lossvalue=0.000521
+INFO:root:Epoch[1] Batch [240-260]	Speed: 5.30 samples/sec	lossvalue=0.000528
+INFO:root:Epoch[1] Batch [260-280]	Speed: 5.31 samples/sec	lossvalue=0.000526
+INFO:root:Epoch[1] Batch [280-300]	Speed: 5.30 samples/sec	lossvalue=0.000527
+INFO:root:Epoch[1] Batch [300-320]	Speed: 5.30 samples/sec	lossvalue=0.000538
+INFO:root:Epoch[1] Batch [320-340]	Speed: 5.31 samples/sec	lossvalue=0.000529
+INFO:root:Epoch[1] Batch [340-360]	Speed: 5.31 samples/sec	lossvalue=0.000533
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[3400][AFLW2000-3D]NME: 0.028252
+saving 17
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0017.params"
+INFO:root:Epoch[1] Batch [360-380]	Speed: 1.97 samples/sec	lossvalue=0.000542
+INFO:root:Epoch[1] Batch [380-400]	Speed: 5.30 samples/sec	lossvalue=0.000523
+INFO:root:Epoch[1] Batch [400-420]	Speed: 5.29 samples/sec	lossvalue=0.000520
+INFO:root:Epoch[1] Batch [420-440]	Speed: 5.29 samples/sec	lossvalue=0.000513
+INFO:root:Epoch[1] Batch [440-460]	Speed: 5.28 samples/sec	lossvalue=0.000533
+INFO:root:Epoch[1] Batch [460-480]	Speed: 5.28 samples/sec	lossvalue=0.000532
+INFO:root:Epoch[1] Batch [480-500]	Speed: 5.28 samples/sec	lossvalue=0.000513
+INFO:root:Epoch[1] Batch [500-520]	Speed: 5.29 samples/sec	lossvalue=0.000509
+INFO:root:Epoch[1] Batch [520-540]	Speed: 5.28 samples/sec	lossvalue=0.000516
+INFO:root:Epoch[1] Batch [540-560]	Speed: 5.29 samples/sec	lossvalue=0.000513
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[3600][AFLW2000-3D]NME: 0.027831
+saving 18
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0018.params"
+INFO:root:Epoch[1] Batch [560-580]	Speed: 1.96 samples/sec	lossvalue=0.000523
+INFO:root:Epoch[1] Batch [580-600]	Speed: 5.29 samples/sec	lossvalue=0.000527
+INFO:root:Epoch[1] Batch [600-620]	Speed: 5.30 samples/sec	lossvalue=0.000525
+INFO:root:Epoch[1] Batch [620-640]	Speed: 5.30 samples/sec	lossvalue=0.000516
+INFO:root:Epoch[1] Batch [640-660]	Speed: 5.30 samples/sec	lossvalue=0.000541
+INFO:root:Epoch[1] Batch [660-680]	Speed: 5.30 samples/sec	lossvalue=0.000511
+INFO:root:Epoch[1] Batch [680-700]	Speed: 5.30 samples/sec	lossvalue=0.000508
+INFO:root:Epoch[1] Batch [700-720]	Speed: 5.30 samples/sec	lossvalue=0.000519
+INFO:root:Epoch[1] Batch [720-740]	Speed: 5.30 samples/sec	lossvalue=0.000522
+INFO:root:Epoch[1] Batch [740-760]	Speed: 5.29 samples/sec	lossvalue=0.000516
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[3800][AFLW2000-3D]NME: 0.027655
+saving 19
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0019.params"
+INFO:root:Epoch[1] Batch [760-780]	Speed: 1.97 samples/sec	lossvalue=0.000525
+INFO:root:Epoch[1] Batch [780-800]	Speed: 5.29 samples/sec	lossvalue=0.000510
+INFO:root:Epoch[1] Batch [800-820]	Speed: 5.29 samples/sec	lossvalue=0.000513
+INFO:root:Epoch[1] Batch [820-840]	Speed: 5.30 samples/sec	lossvalue=0.000517
+INFO:root:Epoch[1] Batch [840-860]	Speed: 5.30 samples/sec	lossvalue=0.000517
+INFO:root:Epoch[1] Batch [860-880]	Speed: 5.30 samples/sec	lossvalue=0.000520
+INFO:root:Epoch[1] Batch [880-900]	Speed: 5.29 samples/sec	lossvalue=0.000503
+INFO:root:Epoch[1] Batch [900-920]	Speed: 5.29 samples/sec	lossvalue=0.000506
+INFO:root:Epoch[1] Batch [920-940]	Speed: 5.29 samples/sec	lossvalue=0.000511
+INFO:root:Epoch[1] Batch [940-960]	Speed: 5.28 samples/sec	lossvalue=0.000515
+lr-batch-epoch: 0.00025 964 1
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[4000][AFLW2000-3D]NME: 0.025842
+saving 20
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0020.params"
+INFO:root:Epoch[1] Batch [960-980]	Speed: 1.96 samples/sec	lossvalue=0.000507
+INFO:root:Epoch[1] Batch [980-1000]	Speed: 5.30 samples/sec	lossvalue=0.000504
+INFO:root:Epoch[1] Batch [1000-1020]	Speed: 5.30 samples/sec	lossvalue=0.000522
+INFO:root:Epoch[1] Batch [1020-1040]	Speed: 5.31 samples/sec	lossvalue=0.000507
+INFO:root:Epoch[1] Batch [1040-1060]	Speed: 5.30 samples/sec	lossvalue=0.000513
+INFO:root:Epoch[1] Batch [1060-1080]	Speed: 5.31 samples/sec	lossvalue=0.000510
+INFO:root:Epoch[1] Batch [1080-1100]	Speed: 5.31 samples/sec	lossvalue=0.000515
+INFO:root:Epoch[1] Batch [1100-1120]	Speed: 5.32 samples/sec	lossvalue=0.000501
+INFO:root:Epoch[1] Batch [1120-1140]	Speed: 5.32 samples/sec	lossvalue=0.000505
+INFO:root:Epoch[1] Batch [1140-1160]	Speed: 5.32 samples/sec	lossvalue=0.000502
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[4200][AFLW2000-3D]NME: 0.025733
+saving 21
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0021.params"
+INFO:root:Epoch[1] Batch [1160-1180]	Speed: 1.97 samples/sec	lossvalue=0.000496
+INFO:root:Epoch[1] Batch [1180-1200]	Speed: 5.32 samples/sec	lossvalue=0.000511
+INFO:root:Epoch[1] Batch [1200-1220]	Speed: 5.31 samples/sec	lossvalue=0.000497
+INFO:root:Epoch[1] Batch [1220-1240]	Speed: 5.31 samples/sec	lossvalue=0.000508
+INFO:root:Epoch[1] Batch [1240-1260]	Speed: 5.32 samples/sec	lossvalue=0.000508
+INFO:root:Epoch[1] Batch [1260-1280]	Speed: 5.31 samples/sec	lossvalue=0.000507
+INFO:root:Epoch[1] Batch [1280-1300]	Speed: 5.31 samples/sec	lossvalue=0.000499
+INFO:root:Epoch[1] Batch [1300-1320]	Speed: 5.31 samples/sec	lossvalue=0.000486
+INFO:root:Epoch[1] Batch [1320-1340]	Speed: 5.31 samples/sec	lossvalue=0.000500
+INFO:root:Epoch[1] Batch [1340-1360]	Speed: 5.31 samples/sec	lossvalue=0.000502
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[4400][AFLW2000-3D]NME: 0.026137
+saving 22
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0022.params"
+INFO:root:Epoch[1] Batch [1360-1380]	Speed: 1.98 samples/sec	lossvalue=0.000496
+INFO:root:Epoch[1] Batch [1380-1400]	Speed: 5.31 samples/sec	lossvalue=0.000505
+INFO:root:Epoch[1] Batch [1400-1420]	Speed: 5.31 samples/sec	lossvalue=0.000490
+INFO:root:Epoch[1] Batch [1420-1440]	Speed: 5.31 samples/sec	lossvalue=0.000501
+INFO:root:Epoch[1] Batch [1440-1460]	Speed: 5.31 samples/sec	lossvalue=0.000496
+INFO:root:Epoch[1] Batch [1460-1480]	Speed: 5.31 samples/sec	lossvalue=0.000495
+INFO:root:Epoch[1] Batch [1480-1500]	Speed: 5.31 samples/sec	lossvalue=0.000499
+INFO:root:Epoch[1] Batch [1500-1520]	Speed: 5.31 samples/sec	lossvalue=0.000495
+INFO:root:Epoch[1] Batch [1520-1540]	Speed: 5.30 samples/sec	lossvalue=0.000490
+INFO:root:Epoch[1] Batch [1540-1560]	Speed: 5.29 samples/sec	lossvalue=0.000492
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[4600][AFLW2000-3D]NME: 0.026254
+saving 23
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0023.params"
+INFO:root:Epoch[1] Batch [1560-1580]	Speed: 1.98 samples/sec	lossvalue=0.000491
+INFO:root:Epoch[1] Batch [1580-1600]	Speed: 5.31 samples/sec	lossvalue=0.000493
+INFO:root:Epoch[1] Batch [1600-1620]	Speed: 5.31 samples/sec	lossvalue=0.000486
+INFO:root:Epoch[1] Batch [1620-1640]	Speed: 5.31 samples/sec	lossvalue=0.000497
+INFO:root:Epoch[1] Batch [1640-1660]	Speed: 5.31 samples/sec	lossvalue=0.000491
+INFO:root:Epoch[1] Batch [1660-1680]	Speed: 5.31 samples/sec	lossvalue=0.000481
+INFO:root:Epoch[1] Batch [1680-1700]	Speed: 5.30 samples/sec	lossvalue=0.000494
+INFO:root:Epoch[1] Batch [1700-1720]	Speed: 5.30 samples/sec	lossvalue=0.000489
+INFO:root:Epoch[1] Batch [1720-1740]	Speed: 5.31 samples/sec	lossvalue=0.000479
+INFO:root:Epoch[1] Batch [1740-1760]	Speed: 5.31 samples/sec	lossvalue=0.000504
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[4800][AFLW2000-3D]NME: 0.026642
+saving 24
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0024.params"
+INFO:root:Epoch[1] Batch [1760-1780]	Speed: 1.96 samples/sec	lossvalue=0.000500
+INFO:root:Epoch[1] Batch [1780-1800]	Speed: 5.31 samples/sec	lossvalue=0.000490
+INFO:root:Epoch[1] Batch [1800-1820]	Speed: 5.31 samples/sec	lossvalue=0.000489
+INFO:root:Epoch[1] Batch [1820-1840]	Speed: 5.31 samples/sec	lossvalue=0.000482
+INFO:root:Epoch[1] Batch [1840-1860]	Speed: 5.30 samples/sec	lossvalue=0.000475
+INFO:root:Epoch[1] Batch [1860-1880]	Speed: 5.31 samples/sec	lossvalue=0.000489
+INFO:root:Epoch[1] Batch [1880-1900]	Speed: 5.31 samples/sec	lossvalue=0.000488
+INFO:root:Epoch[1] Batch [1900-1920]	Speed: 5.31 samples/sec	lossvalue=0.000502
+INFO:root:Epoch[1] Batch [1920-1940]	Speed: 5.31 samples/sec	lossvalue=0.000482
+INFO:root:Epoch[1] Batch [1940-1960]	Speed: 5.31 samples/sec	lossvalue=0.000490
+lr-batch-epoch: 0.00025 1964 1
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[5000][AFLW2000-3D]NME: 0.026183
+saving 25
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0025.params"
+INFO:root:Epoch[1] Batch [1960-1980]	Speed: 1.97 samples/sec	lossvalue=0.000483
+INFO:root:Epoch[1] Batch [1980-2000]	Speed: 5.29 samples/sec	lossvalue=0.000485
+INFO:root:Epoch[1] Batch [2000-2020]	Speed: 5.30 samples/sec	lossvalue=0.000475
+INFO:root:Epoch[1] Batch [2020-2040]	Speed: 5.29 samples/sec	lossvalue=0.000468
+INFO:root:Epoch[1] Batch [2040-2060]	Speed: 5.30 samples/sec	lossvalue=0.000491
+INFO:root:Epoch[1] Batch [2060-2080]	Speed: 5.29 samples/sec	lossvalue=0.000490
+INFO:root:Epoch[1] Batch [2080-2100]	Speed: 5.28 samples/sec	lossvalue=0.000484
+INFO:root:Epoch[1] Batch [2100-2120]	Speed: 5.29 samples/sec	lossvalue=0.000477
+INFO:root:Epoch[1] Batch [2120-2140]	Speed: 5.29 samples/sec	lossvalue=0.000483
+INFO:root:Epoch[1] Batch [2140-2160]	Speed: 5.29 samples/sec	lossvalue=0.000484
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[5200][AFLW2000-3D]NME: 0.026545
+saving 26
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0026.params"
+INFO:root:Epoch[1] Batch [2160-2180]	Speed: 1.97 samples/sec	lossvalue=0.000480
+INFO:root:Epoch[1] Batch [2180-2200]	Speed: 5.30 samples/sec	lossvalue=0.000489
+INFO:root:Epoch[1] Batch [2200-2220]	Speed: 5.30 samples/sec	lossvalue=0.000485
+INFO:root:Epoch[1] Batch [2220-2240]	Speed: 5.30 samples/sec	lossvalue=0.000493
+INFO:root:Epoch[1] Batch [2240-2260]	Speed: 5.31 samples/sec	lossvalue=0.000488
+INFO:root:Epoch[1] Batch [2260-2280]	Speed: 5.31 samples/sec	lossvalue=0.000487
+INFO:root:Epoch[1] Batch [2280-2300]	Speed: 5.30 samples/sec	lossvalue=0.000478
+INFO:root:Epoch[1] Batch [2300-2320]	Speed: 5.30 samples/sec	lossvalue=0.000473
+INFO:root:Epoch[1] Batch [2320-2340]	Speed: 5.31 samples/sec	lossvalue=0.000484
+INFO:root:Epoch[1] Batch [2340-2360]	Speed: 5.30 samples/sec	lossvalue=0.000469
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[5400][AFLW2000-3D]NME: 0.026838
+saving 27
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0027.params"
+INFO:root:Epoch[1] Batch [2360-2380]	Speed: 1.97 samples/sec	lossvalue=0.000475
+INFO:root:Epoch[1] Batch [2380-2400]	Speed: 5.30 samples/sec	lossvalue=0.000481
+INFO:root:Epoch[1] Batch [2400-2420]	Speed: 5.30 samples/sec	lossvalue=0.000478
+INFO:root:Epoch[1] Batch [2420-2440]	Speed: 5.31 samples/sec	lossvalue=0.000478
+INFO:root:Epoch[1] Batch [2440-2460]	Speed: 5.30 samples/sec	lossvalue=0.000462
+INFO:root:Epoch[1] Batch [2460-2480]	Speed: 5.31 samples/sec	lossvalue=0.000476
+INFO:root:Epoch[1] Batch [2480-2500]	Speed: 5.31 samples/sec	lossvalue=0.000479
+INFO:root:Epoch[1] Batch [2500-2520]	Speed: 5.30 samples/sec	lossvalue=0.000477
+INFO:root:Epoch[1] Batch [2520-2540]	Speed: 5.30 samples/sec	lossvalue=0.000496
+INFO:root:Epoch[1] Batch [2540-2560]	Speed: 5.30 samples/sec	lossvalue=0.000484
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[5600][AFLW2000-3D]NME: 0.027550
+saving 28
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0028.params"
+INFO:root:Epoch[1] Batch [2560-2580]	Speed: 1.97 samples/sec	lossvalue=0.000476
+INFO:root:Epoch[1] Batch [2580-2600]	Speed: 5.29 samples/sec	lossvalue=0.000470
+INFO:root:Epoch[1] Batch [2600-2620]	Speed: 5.29 samples/sec	lossvalue=0.000473
+INFO:root:Epoch[1] Batch [2620-2640]	Speed: 5.30 samples/sec	lossvalue=0.000475
+INFO:root:Epoch[1] Batch [2640-2660]	Speed: 5.30 samples/sec	lossvalue=0.000467
+INFO:root:Epoch[1] Batch [2660-2680]	Speed: 5.30 samples/sec	lossvalue=0.000472
+INFO:root:Epoch[1] Batch [2680-2700]	Speed: 5.30 samples/sec	lossvalue=0.000476
+INFO:root:Epoch[1] Batch [2700-2720]	Speed: 5.30 samples/sec	lossvalue=0.000473
+INFO:root:Epoch[1] Batch [2720-2740]	Speed: 5.30 samples/sec	lossvalue=0.000467
+INFO:root:Epoch[1] Batch [2740-2760]	Speed: 5.29 samples/sec	lossvalue=0.000473
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[5800][AFLW2000-3D]NME: 0.025230
+saving 29
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0029.params"
+INFO:root:Epoch[1] Batch [2760-2780]	Speed: 1.97 samples/sec	lossvalue=0.000471
+INFO:root:Epoch[1] Batch [2780-2800]	Speed: 5.29 samples/sec	lossvalue=0.000463
+INFO:root:Epoch[1] Batch [2800-2820]	Speed: 5.29 samples/sec	lossvalue=0.000473
+INFO:root:Epoch[1] Batch [2820-2840]	Speed: 5.30 samples/sec	lossvalue=0.000465
+INFO:root:Epoch[1] Batch [2840-2860]	Speed: 5.28 samples/sec	lossvalue=0.000473
+INFO:root:Epoch[1] Batch [2860-2880]	Speed: 5.28 samples/sec	lossvalue=0.000474
+INFO:root:Epoch[1] Batch [2880-2900]	Speed: 5.28 samples/sec	lossvalue=0.000468
+INFO:root:Epoch[1] Batch [2900-2920]	Speed: 5.28 samples/sec	lossvalue=0.000471
+INFO:root:Epoch[1] Batch [2920-2940]	Speed: 5.28 samples/sec	lossvalue=0.000463
+INFO:root:Epoch[1] Batch [2940-2960]	Speed: 5.29 samples/sec	lossvalue=0.000467
+lr-batch-epoch: 0.00025 2964 1
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[6000][AFLW2000-3D]NME: 0.027923
+saving 30
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0030.params"
+INFO:root:Epoch[1] Batch [2960-2980]	Speed: 1.97 samples/sec	lossvalue=0.000468
+INFO:root:Epoch[1] Batch [2980-3000]	Speed: 5.30 samples/sec	lossvalue=0.000463
+INFO:root:Epoch[1] Batch [3000-3020]	Speed: 5.30 samples/sec	lossvalue=0.000466
+INFO:root:Epoch[1] Train-lossvalue=0.000466
+INFO:root:Epoch[1] Time cost=13367.832
+train size after reset 61225
+INFO:root:Epoch[2] Batch [0-20]	Speed: 5.30 samples/sec	lossvalue=0.000466
+INFO:root:Epoch[2] Batch [20-40]	Speed: 5.30 samples/sec	lossvalue=0.000471
+INFO:root:Epoch[2] Batch [40-60]	Speed: 5.30 samples/sec	lossvalue=0.000469
+INFO:root:Epoch[2] Batch [60-80]	Speed: 5.29 samples/sec	lossvalue=0.000466
+INFO:root:Epoch[2] Batch [80-100]	Speed: 5.28 samples/sec	lossvalue=0.000470
+INFO:root:Epoch[2] Batch [100-120]	Speed: 5.29 samples/sec	lossvalue=0.000465
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[6200][AFLW2000-3D]NME: 0.026641
+saving 31
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0031.params"
+INFO:root:Epoch[2] Batch [120-140]	Speed: 1.97 samples/sec	lossvalue=0.000461
+INFO:root:Epoch[2] Batch [140-160]	Speed: 5.29 samples/sec	lossvalue=0.000472
+INFO:root:Epoch[2] Batch [160-180]	Speed: 5.29 samples/sec	lossvalue=0.000455
+INFO:root:Epoch[2] Batch [180-200]	Speed: 5.29 samples/sec	lossvalue=0.000471
+INFO:root:Epoch[2] Batch [200-220]	Speed: 5.30 samples/sec	lossvalue=0.000456
+INFO:root:Epoch[2] Batch [220-240]	Speed: 5.29 samples/sec	lossvalue=0.000453
+INFO:root:Epoch[2] Batch [240-260]	Speed: 5.28 samples/sec	lossvalue=0.000467
+INFO:root:Epoch[2] Batch [260-280]	Speed: 5.29 samples/sec	lossvalue=0.000465
+INFO:root:Epoch[2] Batch [280-300]	Speed: 5.29 samples/sec	lossvalue=0.000459
+INFO:root:Epoch[2] Batch [300-320]	Speed: 5.29 samples/sec	lossvalue=0.000459
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[6400][AFLW2000-3D]NME: 0.025387
+saving 32
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0032.params"
+INFO:root:Epoch[2] Batch [320-340]	Speed: 1.95 samples/sec	lossvalue=0.000456
+INFO:root:Epoch[2] Batch [340-360]	Speed: 5.28 samples/sec	lossvalue=0.000466
+INFO:root:Epoch[2] Batch [360-380]	Speed: 5.28 samples/sec	lossvalue=0.000451
+INFO:root:Epoch[2] Batch [380-400]	Speed: 5.27 samples/sec	lossvalue=0.000458
+INFO:root:Epoch[2] Batch [400-420]	Speed: 5.28 samples/sec	lossvalue=0.000472
+INFO:root:Epoch[2] Batch [420-440]	Speed: 5.27 samples/sec	lossvalue=0.000472
+INFO:root:Epoch[2] Batch [440-460]	Speed: 5.29 samples/sec	lossvalue=0.000460
+INFO:root:Epoch[2] Batch [460-480]	Speed: 5.29 samples/sec	lossvalue=0.000455
+INFO:root:Epoch[2] Batch [480-500]	Speed: 5.30 samples/sec	lossvalue=0.000452
+INFO:root:Epoch[2] Batch [500-520]	Speed: 5.29 samples/sec	lossvalue=0.000463
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[6600][AFLW2000-3D]NME: 0.026750
+saving 33
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0033.params"
+INFO:root:Epoch[2] Batch [520-540]	Speed: 1.97 samples/sec	lossvalue=0.000452
+INFO:root:Epoch[2] Batch [540-560]	Speed: 5.29 samples/sec	lossvalue=0.000464
+INFO:root:Epoch[2] Batch [560-580]	Speed: 5.29 samples/sec	lossvalue=0.000459
+INFO:root:Epoch[2] Batch [580-600]	Speed: 5.30 samples/sec	lossvalue=0.000479
+INFO:root:Epoch[2] Batch [600-620]	Speed: 5.30 samples/sec	lossvalue=0.000447
+INFO:root:Epoch[2] Batch [620-640]	Speed: 5.30 samples/sec	lossvalue=0.000454
+INFO:root:Epoch[2] Batch [640-660]	Speed: 5.29 samples/sec	lossvalue=0.000459
+INFO:root:Epoch[2] Batch [660-680]	Speed: 5.29 samples/sec	lossvalue=0.000464
+INFO:root:Epoch[2] Batch [680-700]	Speed: 5.29 samples/sec	lossvalue=0.000454
+INFO:root:Epoch[2] Batch [700-720]	Speed: 5.30 samples/sec	lossvalue=0.000462
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[6800][AFLW2000-3D]NME: 0.025710
+saving 34
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0034.params"
+INFO:root:Epoch[2] Batch [720-740]	Speed: 1.97 samples/sec	lossvalue=0.000461
+INFO:root:Epoch[2] Batch [740-760]	Speed: 5.29 samples/sec	lossvalue=0.000446
+INFO:root:Epoch[2] Batch [760-780]	Speed: 5.29 samples/sec	lossvalue=0.000459
+INFO:root:Epoch[2] Batch [780-800]	Speed: 5.29 samples/sec	lossvalue=0.000452
+INFO:root:Epoch[2] Batch [800-820]	Speed: 5.29 samples/sec	lossvalue=0.000455
+INFO:root:Epoch[2] Batch [820-840]	Speed: 5.29 samples/sec	lossvalue=0.000465
+INFO:root:Epoch[2] Batch [840-860]	Speed: 5.29 samples/sec	lossvalue=0.000473
+INFO:root:Epoch[2] Batch [860-880]	Speed: 5.29 samples/sec	lossvalue=0.000459
+INFO:root:Epoch[2] Batch [880-900]	Speed: 5.28 samples/sec	lossvalue=0.000444
+INFO:root:Epoch[2] Batch [900-920]	Speed: 5.29 samples/sec	lossvalue=0.000453
+lr-batch-epoch: 0.00025 929 2
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[7000][AFLW2000-3D]NME: 0.025846
+saving 35
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0035.params"
+INFO:root:Epoch[2] Batch [920-940]	Speed: 1.95 samples/sec	lossvalue=0.000458
+INFO:root:Epoch[2] Batch [940-960]	Speed: 5.27 samples/sec	lossvalue=0.000452
+INFO:root:Epoch[2] Batch [960-980]	Speed: 5.27 samples/sec	lossvalue=0.000442
+INFO:root:Epoch[2] Batch [980-1000]	Speed: 5.27 samples/sec	lossvalue=0.000457
+INFO:root:Epoch[2] Batch [1000-1020]	Speed: 5.27 samples/sec	lossvalue=0.000440
+INFO:root:Epoch[2] Batch [1020-1040]	Speed: 5.28 samples/sec	lossvalue=0.000468
+INFO:root:Epoch[2] Batch [1040-1060]	Speed: 5.29 samples/sec	lossvalue=0.000453
+INFO:root:Epoch[2] Batch [1060-1080]	Speed: 5.29 samples/sec	lossvalue=0.000453
+INFO:root:Epoch[2] Batch [1080-1100]	Speed: 5.29 samples/sec	lossvalue=0.000448
+INFO:root:Epoch[2] Batch [1100-1120]	Speed: 5.29 samples/sec	lossvalue=0.000449
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[7200][AFLW2000-3D]NME: 0.025672
+saving 36
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0036.params"
+INFO:root:Epoch[2] Batch [1120-1140]	Speed: 1.96 samples/sec	lossvalue=0.000465
+INFO:root:Epoch[2] Batch [1140-1160]	Speed: 5.28 samples/sec	lossvalue=0.000447
+INFO:root:Epoch[2] Batch [1160-1180]	Speed: 5.29 samples/sec	lossvalue=0.000455
+INFO:root:Epoch[2] Batch [1180-1200]	Speed: 5.29 samples/sec	lossvalue=0.000455
+INFO:root:Epoch[2] Batch [1200-1220]	Speed: 5.29 samples/sec	lossvalue=0.000430
+INFO:root:Epoch[2] Batch [1220-1240]	Speed: 5.29 samples/sec	lossvalue=0.000437
+INFO:root:Epoch[2] Batch [1240-1260]	Speed: 5.29 samples/sec	lossvalue=0.000449
+INFO:root:Epoch[2] Batch [1260-1280]	Speed: 5.29 samples/sec	lossvalue=0.000452
+INFO:root:Epoch[2] Batch [1280-1300]	Speed: 5.30 samples/sec	lossvalue=0.000461
+INFO:root:Epoch[2] Batch [1300-1320]	Speed: 5.29 samples/sec	lossvalue=0.000457
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[7400][AFLW2000-3D]NME: 0.025242
+saving 37
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0037.params"
+INFO:root:Epoch[2] Batch [1320-1340]	Speed: 1.97 samples/sec	lossvalue=0.000455
+INFO:root:Epoch[2] Batch [1340-1360]	Speed: 5.29 samples/sec	lossvalue=0.000461
+INFO:root:Epoch[2] Batch [1360-1380]	Speed: 5.30 samples/sec	lossvalue=0.000447
+INFO:root:Epoch[2] Batch [1380-1400]	Speed: 5.30 samples/sec	lossvalue=0.000452
+INFO:root:Epoch[2] Batch [1400-1420]	Speed: 5.30 samples/sec	lossvalue=0.000460
+INFO:root:Epoch[2] Batch [1420-1440]	Speed: 5.29 samples/sec	lossvalue=0.000453
+INFO:root:Epoch[2] Batch [1440-1460]	Speed: 5.30 samples/sec	lossvalue=0.000453
+INFO:root:Epoch[2] Batch [1460-1480]	Speed: 5.30 samples/sec	lossvalue=0.000449
+INFO:root:Epoch[2] Batch [1480-1500]	Speed: 5.29 samples/sec	lossvalue=0.000454
+INFO:root:Epoch[2] Batch [1500-1520]	Speed: 5.29 samples/sec	lossvalue=0.000445
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[7600][AFLW2000-3D]NME: 0.026388
+saving 38
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0038.params"
+INFO:root:Epoch[2] Batch [1520-1540]	Speed: 1.97 samples/sec	lossvalue=0.000444
+INFO:root:Epoch[2] Batch [1540-1560]	Speed: 5.29 samples/sec	lossvalue=0.000447
+INFO:root:Epoch[2] Batch [1560-1580]	Speed: 5.29 samples/sec	lossvalue=0.000448
+INFO:root:Epoch[2] Batch [1580-1600]	Speed: 5.29 samples/sec	lossvalue=0.000448
+INFO:root:Epoch[2] Batch [1600-1620]	Speed: 5.29 samples/sec	lossvalue=0.000439
+INFO:root:Epoch[2] Batch [1620-1640]	Speed: 5.29 samples/sec	lossvalue=0.000437
+INFO:root:Epoch[2] Batch [1640-1660]	Speed: 5.29 samples/sec	lossvalue=0.000438
+INFO:root:Epoch[2] Batch [1660-1680]	Speed: 5.29 samples/sec	lossvalue=0.000440
+INFO:root:Epoch[2] Batch [1680-1700]	Speed: 5.29 samples/sec	lossvalue=0.000452
+INFO:root:Epoch[2] Batch [1700-1720]	Speed: 5.28 samples/sec	lossvalue=0.000446
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[7800][AFLW2000-3D]NME: 0.025162
+saving 39
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0039.params"
+INFO:root:Epoch[2] Batch [1720-1740]	Speed: 1.96 samples/sec	lossvalue=0.000445
+INFO:root:Epoch[2] Batch [1740-1760]	Speed: 5.24 samples/sec	lossvalue=0.000444
+INFO:root:Epoch[2] Batch [1760-1780]	Speed: 5.23 samples/sec	lossvalue=0.000449
+INFO:root:Epoch[2] Batch [1780-1800]	Speed: 5.22 samples/sec	lossvalue=0.000453
+INFO:root:Epoch[2] Batch [1800-1820]	Speed: 5.23 samples/sec	lossvalue=0.000429
+INFO:root:Epoch[2] Batch [1820-1840]	Speed: 5.22 samples/sec	lossvalue=0.000422
+INFO:root:Epoch[2] Batch [1840-1860]	Speed: 5.23 samples/sec	lossvalue=0.000442
+INFO:root:Epoch[2] Batch [1860-1880]	Speed: 5.24 samples/sec	lossvalue=0.000442
+INFO:root:Epoch[2] Batch [1880-1900]	Speed: 5.23 samples/sec	lossvalue=0.000445
+INFO:root:Epoch[2] Batch [1900-1920]	Speed: 5.24 samples/sec	lossvalue=0.000450
+lr-batch-epoch: 0.00025 1929 2
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[8000][AFLW2000-3D]NME: 0.024575
+saving 40
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0040.params"
+INFO:root:Epoch[2] Batch [1920-1940]	Speed: 1.93 samples/sec	lossvalue=0.000444
+INFO:root:Epoch[2] Batch [1940-1960]	Speed: 5.24 samples/sec	lossvalue=0.000453
+INFO:root:Epoch[2] Batch [1960-1980]	Speed: 5.23 samples/sec	lossvalue=0.000437
+INFO:root:Epoch[2] Batch [1980-2000]	Speed: 5.23 samples/sec	lossvalue=0.000464
+INFO:root:Epoch[2] Batch [2000-2020]	Speed: 5.23 samples/sec	lossvalue=0.000443
+INFO:root:Epoch[2] Batch [2020-2040]	Speed: 5.24 samples/sec	lossvalue=0.000444
+INFO:root:Epoch[2] Batch [2040-2060]	Speed: 5.22 samples/sec	lossvalue=0.000442
+INFO:root:Epoch[2] Batch [2060-2080]	Speed: 5.22 samples/sec	lossvalue=0.000438
+INFO:root:Epoch[2] Batch [2080-2100]	Speed: 5.24 samples/sec	lossvalue=0.000456
+INFO:root:Epoch[2] Batch [2100-2120]	Speed: 5.23 samples/sec	lossvalue=0.000443
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[8200][AFLW2000-3D]NME: 0.024501
+saving 41
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0041.params"
+INFO:root:Epoch[2] Batch [2120-2140]	Speed: 1.95 samples/sec	lossvalue=0.000441
+INFO:root:Epoch[2] Batch [2140-2160]	Speed: 5.25 samples/sec	lossvalue=0.000451
+INFO:root:Epoch[2] Batch [2160-2180]	Speed: 5.22 samples/sec	lossvalue=0.000444
+INFO:root:Epoch[2] Batch [2180-2200]	Speed: 5.21 samples/sec	lossvalue=0.000433
+INFO:root:Epoch[2] Batch [2200-2220]	Speed: 5.24 samples/sec	lossvalue=0.000438
+INFO:root:Epoch[2] Batch [2220-2240]	Speed: 5.24 samples/sec	lossvalue=0.000448
+INFO:root:Epoch[2] Batch [2240-2260]	Speed: 5.23 samples/sec	lossvalue=0.000449
+INFO:root:Epoch[2] Batch [2260-2280]	Speed: 5.22 samples/sec	lossvalue=0.000454
+INFO:root:Epoch[2] Batch [2280-2300]	Speed: 5.22 samples/sec	lossvalue=0.000434
+INFO:root:Epoch[2] Batch [2300-2320]	Speed: 5.22 samples/sec	lossvalue=0.000447
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[8400][AFLW2000-3D]NME: 0.025483
+saving 42
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0042.params"
+INFO:root:Epoch[2] Batch [2320-2340]	Speed: 1.93 samples/sec	lossvalue=0.000452
+INFO:root:Epoch[2] Batch [2340-2360]	Speed: 5.23 samples/sec	lossvalue=0.000431
+INFO:root:Epoch[2] Batch [2360-2380]	Speed: 5.23 samples/sec	lossvalue=0.000444
+INFO:root:Epoch[2] Batch [2380-2400]	Speed: 5.23 samples/sec	lossvalue=0.000439
+INFO:root:Epoch[2] Batch [2400-2420]	Speed: 5.22 samples/sec	lossvalue=0.000446
+INFO:root:Epoch[2] Batch [2420-2440]	Speed: 5.23 samples/sec	lossvalue=0.000431
+INFO:root:Epoch[2] Batch [2440-2460]	Speed: 5.21 samples/sec	lossvalue=0.000441
+INFO:root:Epoch[2] Batch [2460-2480]	Speed: 5.23 samples/sec	lossvalue=0.000438
+INFO:root:Epoch[2] Batch [2480-2500]	Speed: 5.23 samples/sec	lossvalue=0.000431
+INFO:root:Epoch[2] Batch [2500-2520]	Speed: 5.22 samples/sec	lossvalue=0.000429
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[8600][AFLW2000-3D]NME: 0.026514
+saving 43
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0043.params"
+INFO:root:Epoch[2] Batch [2520-2540]	Speed: 1.94 samples/sec	lossvalue=0.000450
+INFO:root:Epoch[2] Batch [2540-2560]	Speed: 5.22 samples/sec	lossvalue=0.000436
+INFO:root:Epoch[2] Batch [2560-2580]	Speed: 5.20 samples/sec	lossvalue=0.000434
+INFO:root:Epoch[2] Batch [2580-2600]	Speed: 5.22 samples/sec	lossvalue=0.000435
+INFO:root:Epoch[2] Batch [2600-2620]	Speed: 5.23 samples/sec	lossvalue=0.000434
+INFO:root:Epoch[2] Batch [2620-2640]	Speed: 5.22 samples/sec	lossvalue=0.000432
+INFO:root:Epoch[2] Batch [2640-2660]	Speed: 5.22 samples/sec	lossvalue=0.000435
+INFO:root:Epoch[2] Batch [2660-2680]	Speed: 5.22 samples/sec	lossvalue=0.000432
+INFO:root:Epoch[2] Batch [2680-2700]	Speed: 5.20 samples/sec	lossvalue=0.000445
+INFO:root:Epoch[2] Batch [2700-2720]	Speed: 5.22 samples/sec	lossvalue=0.000446
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[8800][AFLW2000-3D]NME: 0.025283
+saving 44
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0044.params"
+INFO:root:Epoch[2] Batch [2720-2740]	Speed: 1.94 samples/sec	lossvalue=0.000444
+INFO:root:Epoch[2] Batch [2740-2760]	Speed: 5.22 samples/sec	lossvalue=0.000440
+INFO:root:Epoch[2] Batch [2760-2780]	Speed: 5.22 samples/sec	lossvalue=0.000446
+INFO:root:Epoch[2] Batch [2780-2800]	Speed: 5.21 samples/sec	lossvalue=0.000440
+INFO:root:Epoch[2] Batch [2800-2820]	Speed: 5.23 samples/sec	lossvalue=0.000428
+INFO:root:Epoch[2] Batch [2820-2840]	Speed: 5.24 samples/sec	lossvalue=0.000437
+INFO:root:Epoch[2] Batch [2840-2860]	Speed: 5.22 samples/sec	lossvalue=0.000440
+INFO:root:Epoch[2] Batch [2860-2880]	Speed: 5.22 samples/sec	lossvalue=0.000433
+INFO:root:Epoch[2] Batch [2880-2900]	Speed: 5.22 samples/sec	lossvalue=0.000441
+INFO:root:Epoch[2] Batch [2900-2920]	Speed: 5.22 samples/sec	lossvalue=0.000452
+lr-batch-epoch: 0.00025 2929 2
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[9000][AFLW2000-3D]NME: 0.024889
+saving 45
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0045.params"
+INFO:root:Epoch[2] Batch [2920-2940]	Speed: 1.94 samples/sec	lossvalue=0.000441
+INFO:root:Epoch[2] Batch [2940-2960]	Speed: 5.22 samples/sec	lossvalue=0.000442
+INFO:root:Epoch[2] Batch [2960-2980]	Speed: 5.24 samples/sec	lossvalue=0.000440
+INFO:root:Epoch[2] Batch [2980-3000]	Speed: 5.23 samples/sec	lossvalue=0.000432
+INFO:root:Epoch[2] Batch [3000-3020]	Speed: 5.23 samples/sec	lossvalue=0.000427
+INFO:root:Epoch[2] Train-lossvalue=0.000428
+INFO:root:Epoch[2] Time cost=13466.853
+train size after reset 61225
+INFO:root:Epoch[3] Batch [0-20]	Speed: 5.23 samples/sec	lossvalue=0.000441
+INFO:root:Epoch[3] Batch [20-40]	Speed: 5.25 samples/sec	lossvalue=0.000436
+INFO:root:Epoch[3] Batch [40-60]	Speed: 5.22 samples/sec	lossvalue=0.000425
+INFO:root:Epoch[3] Batch [60-80]	Speed: 5.21 samples/sec	lossvalue=0.000429
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[9200][AFLW2000-3D]NME: 0.025407
+saving 46
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0046.params"
+INFO:root:Epoch[3] Batch [80-100]	Speed: 1.95 samples/sec	lossvalue=0.000425
+INFO:root:Epoch[3] Batch [100-120]	Speed: 5.23 samples/sec	lossvalue=0.000443
+INFO:root:Epoch[3] Batch [120-140]	Speed: 5.23 samples/sec	lossvalue=0.000436
+INFO:root:Epoch[3] Batch [140-160]	Speed: 5.22 samples/sec	lossvalue=0.000435
+INFO:root:Epoch[3] Batch [160-180]	Speed: 5.21 samples/sec	lossvalue=0.000429
+INFO:root:Epoch[3] Batch [180-200]	Speed: 5.22 samples/sec	lossvalue=0.000438
+INFO:root:Epoch[3] Batch [200-220]	Speed: 5.24 samples/sec	lossvalue=0.000441
+INFO:root:Epoch[3] Batch [220-240]	Speed: 5.22 samples/sec	lossvalue=0.000434
+INFO:root:Epoch[3] Batch [240-260]	Speed: 5.21 samples/sec	lossvalue=0.000443
+INFO:root:Epoch[3] Batch [260-280]	Speed: 5.23 samples/sec	lossvalue=0.000438
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[9400][AFLW2000-3D]NME: 0.025801
+saving 47
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0047.params"
+INFO:root:Epoch[3] Batch [280-300]	Speed: 1.93 samples/sec	lossvalue=0.000432
+INFO:root:Epoch[3] Batch [300-320]	Speed: 5.22 samples/sec	lossvalue=0.000427
+INFO:root:Epoch[3] Batch [320-340]	Speed: 5.22 samples/sec	lossvalue=0.000433
+INFO:root:Epoch[3] Batch [340-360]	Speed: 5.22 samples/sec	lossvalue=0.000431
+INFO:root:Epoch[3] Batch [360-380]	Speed: 5.23 samples/sec	lossvalue=0.000434
+INFO:root:Epoch[3] Batch [380-400]	Speed: 5.23 samples/sec	lossvalue=0.000428
+INFO:root:Epoch[3] Batch [400-420]	Speed: 5.21 samples/sec	lossvalue=0.000423
+INFO:root:Epoch[3] Batch [420-440]	Speed: 5.23 samples/sec	lossvalue=0.000435
+INFO:root:Epoch[3] Batch [440-460]	Speed: 5.23 samples/sec	lossvalue=0.000437
+INFO:root:Epoch[3] Batch [460-480]	Speed: 5.22 samples/sec	lossvalue=0.000428
+INFO:root:loading recordio ./data_3d/AFLW2000-3D.rec...
+train size 2000
+[9600][AFLW2000-3D]NME: 0.025564
+saving 48
+INFO:root:Saved checkpoint to "/content/drive/My Drive/Models/Alignment_1_/Model-0048.params"
+INFO:root:Epoch[3] Batch [480-500]	Speed: 1.94 samples/sec	lossvalue=0.000434
+INFO:root:Epoch[3] Batch [500-520]	Speed: 5.20 samples/sec	lossvalue=0.000433
+INFO:root:Epoch[3] Batch [520-540]	Speed: 5.23 samples/sec	lossvalue=0.000433
+INFO:root:Epoch[3] Batch [540-560]	Speed: 5.23 samples/sec	lossvalue=0.000431
+INFO:root:Epoch[3] Batch [560-580]	Speed: 5.22 samples/sec	lossvalue=0.000437
