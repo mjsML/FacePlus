@@ -2,3 +2,4 @@ EasyDict
 mxnet
 numpy
 opencv-python
+scikit-image

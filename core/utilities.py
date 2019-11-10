@@ -9,7 +9,12 @@ import cv2
 import numpy as np
 import sys
 from numpy import zeros, concatenate, float32, tile, repeat, arange, exp, maximum, minimum
-class image:
+import mxnet as mx
+import math
+import cv2
+from skimage import transform as stf
+
+class image():
     @staticmethod
     def nonMaximumSuppression(boxes,threshold,mode="Union"):
             """
@@ -64,8 +69,6 @@ class image:
                 idxs = last[overlap < threshold]
 
 
-
-
     @staticmethod
     def filter_boxes(boxes, min_size, max_size=-1):
         """ Remove all boxes with any side smaller than min_size """
@@ -76,6 +79,172 @@ class image:
         if min_size > 0:
             boxes = np.where(maximum(ws, hs) > min_size)[0]
         return boxes
+
+    @staticmethod
+    def transform( data, center, output_size, scale, rotation):
+        scale_ratio = float(output_size) / scale
+        rot = float(rotation) * np.pi / 180.0
+        t1 = stf.SimilarityTransform(scale=scale_ratio)
+        cx = center[0] * scale_ratio
+        cy = center[1] * scale_ratio
+        t2 = stf.SimilarityTransform(translation=(-1 * cx, -1 * cy))
+        t3 = stf.SimilarityTransform(rotation=rot)
+        t4 = stf.SimilarityTransform(translation=(output_size / 2, output_size / 2))
+        t = t1 + t2 + t3 + t4
+        trans = t.params[0:2]
+        cropped = cv2.warpAffine(data, trans, (output_size, output_size), borderValue=0.0)
+        return cropped, trans
+
+    @staticmethod
+    def transform_pt( pt, trans):
+        new_pt = np.array([pt[0], pt[1], 1.]).T
+        new_pt = np.dot(trans, new_pt)
+        return new_pt[:2]
+
+    @staticmethod
+    def gaussian( img, pt, sigma):
+        # Draw a 2D gaussian
+        assert (sigma >= 0)
+        if sigma == 0:
+            img[pt[1], pt[0]] = 1.0
+        return True
+
+        # Check that any part of the gaussian is in-bounds
+        ul = [int(pt[0] - 3 * sigma), int(pt[1] - 3 * sigma)]
+        br = [int(pt[0] + 3 * sigma + 1), int(pt[1] + 3 * sigma + 1)]
+        if (ul[0] > img.shape[1] or ul[1] >= img.shape[0] or
+                br[0] < 0 or br[1] < 0):
+            # If not, just return the image as is
+
+            return False
+
+        # Generate gaussian
+        size = 6 * sigma + 1
+        x = np.arange(0, size, 1, float)
+        y = x[:, np.newaxis]
+        x0 = y0 = size // 2
+        # The gaussian is not normalized, we want the center value to equal 1
+        g = np.exp(- ((x - x0) ** 2 + (y - y0) ** 2) / (2 * sigma ** 2))
+
+        # Usable gaussian range
+        g_x = max(0, -ul[0]), min(br[0], img.shape[1]) - ul[0]
+        g_y = max(0, -ul[1]), min(br[1], img.shape[0]) - ul[1]
+        # Image range
+        img_x = max(0, ul[0]), min(br[0], img.shape[1])
+        img_y = max(0, ul[1]), min(br[1], img.shape[0])
+
+        img[img_y[0]:img_y[1], img_x[0]:img_x[1]] = g[g_y[0]:g_y[1], g_x[0]:g_x[1]]
+        return True
+
+    @staticmethod
+    def estimate_trans_bbox( face, input_size, s=2.0):
+        w = face[2] - face[0]
+        h = face[3] - face[1]
+        wc = int((face[2] + face[0]) / 2)
+        hc = int((face[3] + face[1]) / 2)
+        im_size = max(w, h)
+        scale = input_size / (max(w, h) * s)
+        M = [
+            [scale, 0, input_size / 2 - wc * scale],
+            [0, scale, input_size / 2 - hc * scale],
+        ]
+        M = np.array(M)
+        return M
+
+    @staticmethod
+    def parse_lst_line(line):
+      vec = line.strip().split("\t")
+      assert len(vec)>=3
+      aligned = int(vec[0])
+      image_path = vec[1]
+      label = int(vec[2])
+      bbox = None
+      landmark = None
+      #print(vec)
+      if len(vec)>3:
+        bbox = np.zeros( (4,), dtype=np.int32)
+        for i in xrange(3,7):
+          bbox[i-3] = int(vec[i])
+        landmark = None
+        if len(vec)>7:
+          _l = []
+          for i in xrange(7,17):
+            _l.append(float(vec[i]))
+          landmark = np.array(_l).reshape( (2,5) ).T
+      #print(aligned)
+      return image_path, label, bbox, landmark, aligned
+
+    @staticmethod
+    def read_image(img_path, **kwargs):
+      mode = kwargs.get('mode', 'rgb')
+      layout = kwargs.get('layout', 'HWC')
+      if mode=='gray':
+        img = cv2.imread(img_path, cv2.CV_LOAD_IMAGE_GRAYSCALE)
+      else:
+        img = cv2.imread(img_path, cv2.CV_LOAD_IMAGE_COLOR)
+        if mode=='rgb':
+          #print('to rgb')
+          img = img[...,::-1]
+        if layout=='CHW':
+          img = np.transpose(img, (2,0,1))
+      return img
+
+    @staticmethod
+    def preprocess(img, bbox=None, landmark=None, **kwargs):
+      if isinstance(img, str):
+        img = image.read_image(img, **kwargs)
+      M = None
+      image_size = []
+      str_image_size = kwargs.get('image_size', '')
+      if len(str_image_size)>0:
+        image_size = [int(x) for x in str_image_size.split(',')]
+        if len(image_size)==1:
+          image_size = [image_size[0], image_size[0]]
+        assert len(image_size)==2
+        assert image_size[0]==112
+        assert image_size[0]==112 or image_size[1]==96
+      if landmark is not None:
+        assert len(image_size)==2
+        src = np.array([
+          [30.2946, 51.6963],
+          [65.5318, 51.5014],
+          [48.0252, 71.7366],
+          [33.5493, 92.3655],
+          [62.7299, 92.2041] ], dtype=np.float32 )
+        if image_size[1]==112:
+          src[:,0] += 8.0
+        dst = landmark.astype(np.float32)
+
+        tform = stf.SimilarityTransform()
+        tform.estimate(dst, src)
+        M = tform.params[0:2,:]
+
+
+      if M is None:
+        if bbox is None: #use center crop
+          det = np.zeros(4, dtype=np.int32)
+          det[0] = int(img.shape[1]*0.0625)
+          det[1] = int(img.shape[0]*0.0625)
+          det[2] = img.shape[1] - det[0]
+          det[3] = img.shape[0] - det[1]
+        else:
+          det = bbox
+        margin = kwargs.get('margin', 44)
+        bb = np.zeros(4, dtype=np.int32)
+        bb[0] = np.maximum(det[0]-margin/2, 0)
+        bb[1] = np.maximum(det[1]-margin/2, 0)
+        bb[2] = np.minimum(det[2]+margin/2, img.shape[1])
+        bb[3] = np.minimum(det[3]+margin/2, img.shape[0])
+        ret = img[bb[1]:bb[3],bb[0]:bb[2],:]
+        if len(image_size)>0:
+          ret = cv2.resize(ret, (image_size[1], image_size[0]))
+        return ret
+      else: #do align using landmark
+        assert len(image_size)==2
+        warped = cv2.warpAffine(img,M,(image_size[1],image_size[0]), borderValue = 0.0)
+        return warped
+
+
 
 
 class AnchorConfiguration:
@@ -226,3 +395,18 @@ def nonlinear_predictions(boxes, box_deltas):
         dy -= dh
         dh += dh
         dh += dy
+
+def do_flip(data):
+  for idx in range(data.shape[0]):
+    data[idx,:,:] = np.fliplr(data[idx,:,:])
+
+def get_model(ctx, image_size, model_str, layer):
+
+  sym, arg_params, aux_params = mx.model.load_checkpoint(model_str, 0)
+  all_layers = sym.get_internals()
+  sym = all_layers[layer+'_output']
+  model = mx.mod.Module(symbol=sym, context=ctx, label_names = None)
+  #model.bind(data_shapes=[('data', (args.batch_size, 3, image_size[0], image_size[1]))], label_shapes=[('softmax_label', (args.batch_size,))])
+  model.bind(data_shapes=[('data', (1, 3, image_size[0], image_size[1]))])
+  model.set_params(arg_params, aux_params)
+  return model

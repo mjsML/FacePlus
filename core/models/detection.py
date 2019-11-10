@@ -1,11 +1,11 @@
-from core.utilities import AnchorConfiguration as ac
+
 # implementation is inspired by the original deploy script from :
 # https://github.com/deepinsight/insightface/blob/master/deploy/helper.py
 # and enhanced performance / parallelization inspired by:
 # https://github.com/1996scarlet/faster-mobile-retinaface/blob/master/face_detector.py
 
 
-
+from core.utilities import AnchorConfiguration as ac
 from functools import partial
 import cv2
 import numpy as np

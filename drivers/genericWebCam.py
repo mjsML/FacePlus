@@ -9,11 +9,9 @@ class RGBcamera(RGBCamera):
 
         if cameraID==None:
             cameraID=self._cameraID
-        #print(cameraID)
 
 
-        #print(cameraID)
+
         _, img = self.cam.read()
 
-        #print(cameraID)
         return img

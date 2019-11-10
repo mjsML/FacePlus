@@ -1,1 +1,2 @@
 class baseRecognition():
+    pass

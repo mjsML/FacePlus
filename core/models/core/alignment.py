@@ -1,2 +1,3 @@
 
 class baseAlignment():
+ pass
