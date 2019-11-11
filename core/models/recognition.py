@@ -1,5 +1,5 @@
 # implementation is inspired by the original deploy script from :
-#https://github.com/deepinsight/insightface/blob/master/deploy/face_model.py
+# https://github.com/deepinsight/insightface/blob/master/deploy/face_model.py
 
 import numpy as np
 import mxnet as mx
@@ -9,30 +9,30 @@ from core.utilities import image as img
 from core.utilities import get_model
 import core.configuration as cfg
 from sklearn import preprocessing
+
+
 class mxnet_recognition_model():
-    def __init__(self, prefix, epoch, imsize,ctx_id=0):
+    def __init__(self, prefix, epoch, imsize, ctx_id=0):
         # TODO move all args to config file
         if ctx_id >= 0:
             ctx = mx.gpu(ctx_id)
         else:
             ctx = mx.cpu()
-        self.ID=None
+        self.ID = None
 
-        image_size = imsize[0],imsize[1]
+        image_size = imsize[0], imsize[1]
         self.model = None
 
         self.model = get_model(ctx, image_size, cfg.config.defaultRecognitionNetworkPath, 'fc1')
 
-
         self.threshold = cfg.config.defaultRecognitionThreshold
-        #TODO move all args to config file
+        # TODO move all args to config file
         self.det_minsize = 50
         self.det_threshold = [0.6, 0.7, 0.8]
 
         self.image_size = image_size
 
-
-    def get_input(self, face_img,bbox=None):
+    def get_input(self, face_img, bbox=None):
 
         nimg = img.preprocess(face_img, bbox, None, image_size='112,112')
         nimg = cv2.cvtColor(nimg, cv2.COLOR_BGR2RGB)
@@ -48,32 +48,32 @@ class mxnet_recognition_model():
         embedding = preprocessing.normalize(embedding).flatten()
         return embedding
 
-    def getDistance(self,f1,f2):
+    def getDistance(self, f1, f2):
         return np.sum(np.square(f1 - f2))
 
-    def storeID(self,f1):
-        self.ID=f1
+    def storeID(self, f1):
+        self.ID = f1
 
-    def verifyID(self,image):
-        if len(self.ID) >0:
-            f1=self.get_input(image)
-            f1=self.get_feature(f1)
-            if self.getDistance(f1, self.ID)<=cfg.config.defaultRecognitionDistanceThreshold:
+    def verifyID(self, image):
+        if len(image)==0:
+            return False
+        if len(self.ID) > 0:
+            f1 = self.get_input(image)
+            f1 = self.get_feature(f1)
+            if self.getDistance(f1, self.ID) <= cfg.config.defaultRecognitionDistanceThreshold:
                 return True
             else:
                 return False
         return False
 
-    def captureID(self,image):
-        #try:
+    def captureID(self, image):
+        if len(image)==0:
+            return False
+        try:
 
-            alignedImage=self.get_input(image)
-            f1=self.get_feature(alignedImage)
+            alignedImage = self.get_input(image)
+            f1 = self.get_feature(alignedImage)
             self.storeID(f1)
             return True
-        #except:
-            print("Boom!")
+        except:
             return False
-
-
-
